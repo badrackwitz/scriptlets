@@ -2,7 +2,7 @@
 
 Moin Moin. 
 
-Im Folgenden wird *gründlichst* erklärt, welche Schritte beachtet werden müssen, um ein Skriplet zu erstelen, zu testen oder hochzuladen.
+Im Folgenden wird erklärt, welche Schritte beachtet werden müssen, um ein Skriplet zu erstelen, zu testen oder hochzuladen.
 
 ## Neues Skriptlet erstellen
 
