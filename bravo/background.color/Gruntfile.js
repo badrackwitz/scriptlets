@@ -1,0 +1,106 @@
+module.exports = function(grunt) {
+
+   // Project configuration.
+   grunt.initConfig({
+         pkg: grunt.file.readJSON('package.json'),
+         uglify: {
+            options: {
+               //banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+               src: 'src/<%= pkg.name %>.js',
+               dest: 'src/<%= pkg.name %>.min.js'
+            }
+         },
+         wrapScriptTag: {
+            src: 'src/<%= pkg.name %>.min.js',
+            wrapInto : '<script type="text/javascript">\n',
+            wrapOutro : '</script>',
+            dest: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+         },
+         beautify: {
+            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js',
+            symbolStart : '([',
+            symbolEnd : '])',
+            dest: 'build/<%= pkg.name %>.beautified.v<%= pkg.version %>.js'
+         },
+         deleteUglified: {
+            src: 'src/<%= pkg.name %>.min.js',
+         },
+         deleteWrapped: {
+            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+         },
+         watch: {
+            scripts: {
+               files: 'src/<%= pkg.name %>.js',
+               tasks: ['default'],
+                  options: {
+                  event: ['changed'],
+                  spawn: false
+               },
+            },
+         },
+         jshint: {
+            all: ['src/<%= pkg.name %>.js']
+         }
+   });
+
+   // Load the plugins
+   grunt.loadNpmTasks('grunt-contrib-uglify');
+   grunt.loadNpmTasks('grunt-contrib-watch');
+   grunt.loadNpmTasks('grunt-contrib-jshint');
+
+   grunt.registerTask('wrapScriptTag', 'wrapping...', function(){
+            var fs = require('fs');
+
+      // get content that wants to be wrapped
+      var contentToWrap = fs.readFileSync(grunt.config('wrapScriptTag.src'),'utf8') + '\n';
+
+      contentToWrap = grunt.config('wrapScriptTag.wrapInto') + '\t'+ contentToWrap + grunt.config('wrapScriptTag.wrapOutro');
+
+      // save the file with the wrapped content
+      fs.writeFileSync(grunt.config('wrapScriptTag.dest'), contentToWrap); 
+
+      grunt.log.writeln('File "'+ grunt.config('wrapScriptTag.dest') +'" created.');
+
+   });
+
+   grunt.registerTask('beautify', 'beautify task', function(){
+      var fs = require('fs');
+
+      // get content that wants to be wrapped
+      var script = fs.readFileSync(grunt.config('beautify.src'),'utf8') + '\n';
+
+      var beautifulScript = script.replace(grunt.config('beautify.symbolStart'),grunt.config('beautify.symbolStart') + '\n\t\t');
+      beautifulScript = beautifulScript.replace('\",\"','\",\n\t\t\"');
+      beautifulScript = beautifulScript.replace(grunt.config('beautify.symbolEnd'),'\n\t' + grunt.config('beautify.symbolEnd'));
+
+
+      // save the file with the wrapped content
+      fs.writeFileSync(grunt.config('beautify.dest'), beautifulScript); 
+      
+      grunt.log.writeln('File "'+ grunt.config('beautify.dest') +'" created.');
+   });
+
+   grunt.registerTask('deleteUglified', 'deleting...', function(){
+      var fs = require('fs');
+
+      fs.unlinkSync(grunt.config('deleteUglified.src'));
+
+   });
+
+   grunt.registerTask('deleteWrapped', 'deleting...', function(){
+      var fs = require('fs');
+
+      fs.unlinkSync(grunt.config('deleteWrapped.src'));
+
+   });
+
+   // Default task(s).
+   grunt.registerTask('default', ['jshint','uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
+   grunt.registerTask('wrap', ['uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
+   //grunt.registerTask('beautify', 'beautify');
+   grunt.registerTask('deleteGeneratedFiles',['deleteUglified','deleteWrapped']);
+   grunt.registerTask('gist', 'gh-pages');
+
+};
