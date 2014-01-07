@@ -7,12 +7,12 @@ Im Folgenden wird *gründlichst* erklärt, welche Schritte beachtet werden müss
 ## Neues Skriptlet erstellen
 
 Um ein neues Skriptlet zu erstellen müssen folgende Schritte abgearbeitet werden:
-* ggf. Erstellen des Ordners (z.B. bravo, autozeitung, cosmopolitan, etc.)
-* Erstellen des Ordners für das Skriptlet (z.B. background.click oder background.color)
-* Öffnen der Konsole
-* Navigieren zum erstellten Skriptletordner
-* Ausführen des Befehls `grunt-init ../../_template`
-* Angeben der geforderten Eingaben
+1. ggf. Erstellen des Ordners (z.B. bravo, autozeitung, cosmopolitan, etc.)
+2. Erstellen des Ordners für das Skriptlet (z.B. background.click oder background.color)
+3. Öffnen der Konsole
+4. Navigieren zum erstellten Skriptletordner
+5. Ausführen des Befehls `grunt-init ../../_template`
+6. Angeben der geforderten Eingaben
 
 Nun sollten im Skriptletordner alle Dateien angelegt sein, die benötigt werden. 
 Im Ordner *src* liegt nun eine Datei bereit, in der das Skriptlet enthalten sein soll.
