@@ -1,7 +1,5 @@
 {
-  "name": "azo.background.click",
-  "description": "clickable background",
-  "homepage": "11ec229dc9a520af9a3f",
+	"name": "azo.background.click",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",

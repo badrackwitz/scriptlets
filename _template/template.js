@@ -10,7 +10,7 @@ exports.notes = 'This template tries to guess file and directory paths, but ' +
   'it exits with errors, edit the file!_';
 
 // Any existing file or directory matching this wildcard will cause a warning.
-exports.warnOn = 'Gruntfile.js';
+exports.warnOn = '*';
 
 // The actual init template.
 exports.template = function(grunt, init, done) {
@@ -55,7 +55,7 @@ exports.template = function(grunt, init, done) {
       // Generate package.json file, used by npm and grunt.
       init.writePackageJSON('package.json', {
         name: props.name,
-        //homepage : props.gist_ID,
+        homepage : props.gist_ID,
         description:  props.description,
         
         devDependencies: devDependencies
