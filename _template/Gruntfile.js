@@ -16,19 +16,19 @@ module.exports = function(grunt) {
             src: 'src/<%= pkg.name %>.min.js',
             wrapInto : '<script type="text/javascript">\n',
             wrapOutro : '</script>',
-            dest: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+            dest: 'build/<%= pkg.name %>.min.wrapped.js'
          },
          beautify: {
-            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js',
+            src: 'build/<%= pkg.name %>.min.wrapped.js',
             symbolStart : '([',
             symbolEnd : '])',
-            dest: 'build/<%= pkg.name %>.beautified.v<%= pkg.version %>.js'
+            dest: 'build/<%= pkg.name %>.beautified.js'
          },
          deleteUglified: {
             src: 'src/<%= pkg.name %>.min.js',
          },
          deleteWrapped: {
-            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+            src: 'build/<%= pkg.name %>.min.wrapped.js'
          },
          watch: {
             scripts: {

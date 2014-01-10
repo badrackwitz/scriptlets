@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                file: {
                   gistId: '<%= pkg.homepage %>',
                   filename: '<%= pkg.name %>.js',
-                  file: 'src/<%= pkg.name %>.js'
+                  file: 'build/<%= pkg.name %>.beautified.js'
                }
             }
     };
