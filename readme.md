@@ -6,7 +6,7 @@ Im Folgenden wird erklärt, welche Schritte beachtet werden müssen, um ein Skri
 
 ## Namenskonvention
 
-Beim Erstellen eines Skriptlets (s. ### Neues Skriptlet erstellen) wird der Name des Projektes abgefragt. Hierbei ist bitte folgende Namenskonvention einzuhalten:  
+Beim Erstellen eines Skriptlets wird der Name des Projektes abgefragt. Hierbei ist bitte folgende Namenskonvention einzuhalten:  
 
 `[background.click|background.color].[Kürzel des Objekts(Bsp.: azo, bvo, into, wuwe, joy, lede, tvm...)]`  
 Diese Bennenung sollte auch beim Anlegen des Gists befolgt werden, um eine rebungslose Kommunikation zu ermöglichen.  
