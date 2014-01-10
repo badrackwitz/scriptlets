@@ -30,6 +30,9 @@ module.exports = function(grunt) {
          deleteWrapped: {
             src: 'build/<%= pkg.name %>.min.wrapped.js'
          },
+         deleteDeletedOnBuildFile:{
+             src: 'build/<%= pkg.name %>_deletedOnBuild.js'
+         },
          watch: {
             scripts: {
                files: 'src/<%= pkg.name %>.js',
@@ -107,6 +110,11 @@ module.exports = function(grunt) {
       fs.unlinkSync(grunt.config('deleteWrapped.src'));
    });
 
+   grunt.registerTask('deleteDeletedOnBuildFile', 'deleting...', function(){
+      var fs = require('fs');
+
+      fs.unlinkSync(grunt.config('deleteDeletedOnBuildFile.src'));
+   });
    grunt.registerMultiTask('publish', function() {
       var done = this.async();
       
@@ -135,9 +143,9 @@ module.exports = function(grunt) {
    });
 
    // Default task(s).
-   grunt.registerTask('default', ['jshint','uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
-   grunt.registerTask('wrap', ['uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
+   grunt.registerTask('default', ['jshint','uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped', 'deleteDeletedOnBuildFile']);
+   grunt.registerTask('wrap', ['uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped', 'deleteDeletedOnBuildFile']);
    //grunt.registerTask('beautify', 'beautify');
-   grunt.registerTask('deleteGeneratedFiles',['deleteUglified','deleteWrapped']);
+   grunt.registerTask('deleteGeneratedFiles',['deleteUglified','deleteWrapped', 'deleteDeletedOnBuildFile']);
    grunt.registerTask('publishScript', ['publish']);
 };
