@@ -113,7 +113,9 @@ module.exports = function(grunt) {
    grunt.registerTask('deleteDeletedOnBuildFile', 'deleting...', function(){
       var fs = require('fs');
 
-      fs.unlinkSync(grunt.config('deleteDeletedOnBuildFile.src'));
+      if(fs.existsSync('build/build_deletedOnBuild.js')){
+         fs.unlinkSync(grunt.config('deleteDeletedOnBuildFile.src'));
+      }
    });
    grunt.registerMultiTask('publish', function() {
       var done = this.async();

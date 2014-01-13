@@ -16,19 +16,22 @@ module.exports = function(grunt) {
             src: 'src/<%= pkg.name %>.min.js',
             wrapInto : '<script type="text/javascript">\n',
             wrapOutro : '</script>',
-            dest: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+            dest: 'build/<%= pkg.name %>.min.wrapped.js'
          },
          beautify: {
-            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js',
+            src: 'build/<%= pkg.name %>.min.wrapped.js',
             symbolStart : '([',
             symbolEnd : '])',
-            dest: 'build/<%= pkg.name %>.beautified.v<%= pkg.version %>.js'
+            dest: 'build/<%= pkg.name %>.beautified.js'
          },
          deleteUglified: {
             src: 'src/<%= pkg.name %>.min.js',
          },
          deleteWrapped: {
-            src: 'build/<%= pkg.name %>.min.wrapped.v<%= pkg.version %>.js'
+            src: 'build/<%= pkg.name %>.min.wrapped.js'
+         },
+         deleteDeletedOnBuildFile:{
+             src: 'build/<%= pkg.name %>_deletedOnBuild.js'
          },
          watch: {
             scripts: {
@@ -50,7 +53,7 @@ module.exports = function(grunt) {
                   token: '9119f34cfa76b90db97388527b2171d69335bb3c'
                },
                file: {
-                  gistId: '<%= pkg.gistID %>',
+                  gistId: '<%= pkg.homepage %>',
                   filename: '<%= pkg.name %>.js',
                   file: 'src/<%= pkg.name %>.js'
                }
@@ -107,6 +110,13 @@ module.exports = function(grunt) {
       fs.unlinkSync(grunt.config('deleteWrapped.src'));
    });
 
+   grunt.registerTask('deleteDeletedOnBuildFile', 'deleting...', function(){
+      var fs = require('fs');
+
+      if(fs.existsSync('build/build_deletedOnBuild.js')){
+         fs.unlinkSync(grunt.config('deleteDeletedOnBuildFile.src'));
+      }
+   });
    grunt.registerMultiTask('publish', function() {
       var done = this.async();
       
@@ -135,9 +145,9 @@ module.exports = function(grunt) {
    });
 
    // Default task(s).
-   grunt.registerTask('default', ['jshint','uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
-   grunt.registerTask('wrap', ['uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped']);
+   grunt.registerTask('default', ['jshint','uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped', 'deleteDeletedOnBuildFile']);
+   grunt.registerTask('wrap', ['uglify', 'wrapScriptTag', 'beautify', 'deleteUglified', 'deleteWrapped', 'deleteDeletedOnBuildFile']);
    //grunt.registerTask('beautify', 'beautify');
-   grunt.registerTask('deleteGeneratedFiles',['deleteUglified','deleteWrapped']);
+   grunt.registerTask('deleteGeneratedFiles',['deleteUglified','deleteWrapped', 'deleteDeletedOnBuildFile']);
    grunt.registerTask('publishScript', ['publish']);
 };
