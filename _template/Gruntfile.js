@@ -111,10 +111,13 @@ module.exports = function(grunt) {
    });
 
    grunt.registerTask('deleteDeletedOnBuildFile', 'deleting...', function(){
-      var fs = require('fs');
-
-      if(fs.existsSync('build/build_deletedOnBuild.js')){
+     var fs = require('fs');
+      
+      if(fs.existsSync(grunt.config('deleteDeletedOnBuildFile.src'))){
          fs.unlinkSync(grunt.config('deleteDeletedOnBuildFile.src'));
+      }
+      if(fs.existsSync('build/build.js')){
+          fs.unlinkSync('build/build.js');
       }
    });
    grunt.registerMultiTask('publish', function() {
