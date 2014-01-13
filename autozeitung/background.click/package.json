@@ -1,6 +1,6 @@
 {
-  "name": "azo.background.click",
-  "description": "clickable background",
+  "name": "background.click.azo",
+  "description": "clickable background for autozeitung.de",
   "homepage": "11ec229dc9a520af9a3f",
   "devDependencies": {
     "grunt": "~0.4.2",

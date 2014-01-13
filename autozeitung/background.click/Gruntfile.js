@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
-  	'use strict';
+    'use strict';
 
-  	require('../../_template/Gruntfile.js')(grunt);
-  	var publishConfig = {
+    require('../../_template/Gruntfile.js')(grunt);
+    var publishConfig = {
       default: {
                auth: {
                   type: 'oauth',
