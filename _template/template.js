@@ -56,6 +56,7 @@ exports.template = function(grunt, init, done) {
 		init.writePackageJSON('package.json', {
 			name: props.name,
 			description: props.description,
+			author_name: props.author_name,
 			
 			devDependencies: devDependencies
 		});
