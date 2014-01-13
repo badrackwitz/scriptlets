@@ -2,14 +2,26 @@
 
 Moin Moin.  
 
-Im Folgenden wird erklärt, welche Schritte beachtet werden müssen, um ein Skriplet zu erstelen, zu testen oder hochzuladen.  
+Im Folgenden wird erklärt, welche Schritte beachtet werden müssen, um ein Skriplet zu erstellen, zu testen oder hochzuladen.
+
+
+## Setup
+Folgende Vorarbeiten müssen getätigt werden, um mit diesem Projekt arbeiten zu können.
+
+1. [Node.JS](http://nodejs.org/) installieren
+2. [GruntJS](http://gruntjs.com/) installieren mit `npm install -g grunt-cli`
+3. [grunt-init](http://gruntjs.com/project-scaffolding) installieren mit `npm install -g grunt-init`
+4. Projekt in lokales Repository klonen.
+5. Mit Hilfe der Konsole in den Projekt-Ordner navigieren.
+6. `npm install` ausführen
+
 
 ## Namenskonvention
 
 Beim Erstellen eines Skriptlets wird der Name des Projektes abgefragt. Hierbei ist bitte folgende Namenskonvention einzuhalten:  
 
 `[background.click|background.color].[Kürzel des Objekts(Bsp.: azo, bvo, tvm...)]`  
-Diese Bennenung sollte auch beim Anlegen des Gists befolgt werden, um eine rebungslose Kommunikation zu ermöglichen.  
+Diese Bennenung sollte auch beim Anlegen des Gists befolgt werden, um eine reibungslose Kommunikation zu ermöglichen.  
 
 
 Diese Richtline sollte auch bereits beim Erstellen des Ordners innerhalb des Projektes eingehalten werden. Unterordner des Objekts werden dann nach der Funktion des Skriptlets bezeichnet.  
