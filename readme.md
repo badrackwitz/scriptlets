@@ -13,7 +13,7 @@ Folgende Vorarbeiten müssen getätigt werden, um mit diesem Projekt arbeiten zu
 3. [grunt-init](http://gruntjs.com/project-scaffolding) installieren mit `npm install -g grunt-init`
 4. Projekt in lokales Repository klonen.
 5. Mit Hilfe der Konsole in den Projekt-Ordner navigieren.
-6. `npm install` ausführen
+6. Plugins und Module installieren mit `npm install`
 
 
 ## Namenskonvention
