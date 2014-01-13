@@ -6,10 +6,10 @@ module.exports = function(grunt) {
 	grunt.config('update-gist', {
 		auth: {
 			type: 'oauth',
-			token: '__OAUTH_TOKEN__'
+			token: '3f7a8e8ef291413da51393150fcf3a8a7f900edd'
 		},
 		file: {
-			gistId: '__GIST_ID__',
+			gistId: '<%= pkg.homepage %>',
 			filename: '<%= pkg.name %>.html',
 			file: 'build/<%= pkg.name %>.build.html'
 		}

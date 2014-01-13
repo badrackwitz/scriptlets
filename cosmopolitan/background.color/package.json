@@ -1,0 +1,12 @@
+{
+  "name": "background.color.cosmo",
+  "description": "Background coloring for cosmopolitan.de.",
+  "homepage": "77c2c79fed7f333407a8",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.2.7",
+    "github": "~0.1.12"
+  }
+}

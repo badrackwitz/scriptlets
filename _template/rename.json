@@ -1,4 +1,3 @@
 {
-	"src/src.js": "src/{%= name %}.js",
-	"build/build.js": "build/{%= name %}_deletedOnBuild.js"
+	"src/src.js": "src/{%= name %}.js"
 }
