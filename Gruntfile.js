@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 		wrapScriptTag: {
 			src: 'build/<%= pkg.name %>.min.js',
 			wrapInto: '<script type="text/javascript">\n',
-			wrapOutro: '</script>',
+			wrapOutro: '\n</script>',
 			dest: 'build/<%= pkg.name %>.min.wrapped.html'
 		},
 		beautify: {
