@@ -9,13 +9,13 @@ module.exports = function(grunt) {
 			},
 			build: {
 				src: 'src/<%= pkg.name %>.js',
-				dest: 'src/<%= pkg.name %>.min.js'
+				dest: 'build/<%= pkg.name %>.min.js'
 			}
 		},
 		wrapScriptTag: {
-			src: 'src/<%= pkg.name %>.min.js',
+			src: 'build/<%= pkg.name %>.min.js',
 			wrapInto: '<script type="text/javascript">\n',
-			wrapOutro: '</script>',
+			wrapOutro: '\n</script>',
 			dest: 'build/<%= pkg.name %>.min.wrapped.html'
 		},
 		beautify: {

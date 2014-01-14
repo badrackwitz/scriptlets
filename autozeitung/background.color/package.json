@@ -1,7 +1,9 @@
 {
   "name": "background.color.azo",
-  "description": "color the background of azo pages",
-  "homepage": "a503b36085009972b10d",
+  "description": "Background coloring for autozeitung.de.",
+  "author": {
+    "name": "Marius Naumann"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
