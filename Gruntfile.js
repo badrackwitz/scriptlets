@@ -22,6 +22,8 @@ module.exports = function(grunt) {
 			src: 'build/<%= pkg.name %>.min.wrapped.html',
 			symbolStart: '([',
 			symbolEnd: '])',
+			symbolURLStart: '("',
+			symbolURLEnd: '")',	
 			dest: 'build/<%= pkg.name %>.build.html'
 		},
 		watch: {
@@ -63,7 +65,7 @@ module.exports = function(grunt) {
 	});
 
 	/**
-	 * Turns the minified and wrapped file into an readable
+	 * Turns the minified and wrapped file into a readable
 	 * scriptlet.
 	 */
 	grunt.registerTask('beautify', 'beautify task', function(){
@@ -75,6 +77,12 @@ module.exports = function(grunt) {
 		var beautifulScript = script.replace(grunt.config('beautify.symbolStart'), grunt.config('beautify.symbolStart') + '\n    ');
 		beautifulScript = beautifulScript.replace('\",\"', '\",\n    "');
 		beautifulScript = beautifulScript.replace(grunt.config('beautify.symbolEnd'), '\n  ' + grunt.config('beautify.symbolEnd'));
+		
+		// inserting a line break after last appearance of the specified url end symbol
+		var lastIndexSymbolEnd = beautifulScript.lastIndexOf(grunt.config('beautify.symbolURLEnd'));
+		var lastIndexSymbolStart = beautifulScript.lastIndexOf(grunt.config('beautify.symbolURLStart'));
+		beautifulScript = beautifulScript.substr(0,lastIndexSymbolStart+1) + '\n      ' + beautifulScript.substr(lastIndexSymbolStart+1);
+		beautifulScript = beautifulScript.substr(0,lastIndexSymbolEnd+8) + '\n  ' + beautifulScript.substr(lastIndexSymbolEnd+8);
 
 		// save the file with the wrapped content
 		fs.writeFileSync(grunt.config('beautify.dest'), beautifulScript); 
