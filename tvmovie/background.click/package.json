@@ -1,6 +1,6 @@
 {
-  "name": "background.color.bvo",
-  "description": "colors the background for bravo.de",
+  "name": "background.click.tvm",
+  "description": "makes the background clickable on tvmovie.de",
   "author": {
     "name": "Gregor Rackwitz"
   },
