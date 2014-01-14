@@ -1,5 +1,16 @@
 (function(s) {
-  var c=s.join(' ');var e=document.createElement('style');e.type='text/css';if(e.styleSheet)e.styleSheet.cssText=c;else e.appendChild(document.createTextNode(c));document.getElementsByTagName('head')[0].appendChild(e);
+	var css = s.join(' ');
+
+	var styleElement = document.createElement('style');
+	styleElement.type = 'text/css';
+	if(styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = css;
+	}
+	else {
+		styleElement.appendChild(document.createTextNode(css));
+	}
+
+	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-  'body { background-color:#000000; }'
+	'body { background-color:#000000; }'
 ]));

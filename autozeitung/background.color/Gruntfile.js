@@ -1,20 +1,17 @@
 module.exports = function(grunt) {
-    'use strict';
+	'use strict';
 
-    require('../../_template/Gruntfile.js')(grunt);
-    var publishConfig = {
-      default: {
-               auth: {
-                  type: 'oauth',
-                  token: '9119f34cfa76b90db97388527b2171d69335bb3c'
-               },
-               file: {
-                  gistId: '<%= pkg.homepage %>',
-                  filename: '<%= pkg.name %>.js',
-                  file: 'build/<%= pkg.name %>.beautified.js'
-               }
-            }
-    };
+	require('../../Gruntfile.js')(grunt);
 
-    grunt.config('publish',publishConfig);
+	grunt.config('update-gist', {
+		auth: {
+			type: 'oauth',
+			token: '3f7a8e8ef291413da51393150fcf3a8a7f900edd'
+		},
+		file: {
+			gistId: '2623acf59bf0c4cbef5f',
+			filename: '<%= pkg.name %>.html',
+			file: 'build/<%= pkg.name %>.build.html'
+		}
+	});
 };
