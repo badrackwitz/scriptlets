@@ -51,7 +51,7 @@ Die getesteten und lauffähigen Skriptlets werden auf Gist hochgeladen. Hierzu w
 Falls noch kein Gist angelegt wurde, muss dies nun getan werden.  
 Ist bereits ein Gist angelegt worden, steht die GistID wahrscheinlich in der `package.json`-Datei. Ist dies nicht der Fall, sollte diese nachgepflegt werden.  
 
-Wenn die ID hinterlegt ist, kann über die Konsole `grunt publish` aufgerufen werden. Hierbei wird die Datei mit dem Namen (z.B.:) `azo.background.color.beautified.js` hochgeladen.  
+Wenn die ID hinterlegt ist, kann über die Konsole `grunt publish` aufgerufen werden. Hierbei wird die Datei mit dem Namen (z.B.:) `background.color.build.html` hochgeladen.  
 
 
 Have fun!
