@@ -12,5 +12,5 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'body { background-color:#000000; }'
+	'#adlytics-adtags-pb { margin:0 auto; width: 924px; }'
 ]));

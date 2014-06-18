@@ -12,5 +12,5 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'body { background-color:#000000; }'
+	'#billboard { margin:10px auto 0 auto; }'
 ]));

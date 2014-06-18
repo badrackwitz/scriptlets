@@ -12,5 +12,5 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'body { background-color:#000000; }'
+	'#tp_48 div.ashatb > div > div { margin:0 auto 8px auto !important; width: 952px !important;}'
 ]));

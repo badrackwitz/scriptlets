@@ -12,5 +12,5 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'body { background-color:#000000; }'
+	'#manuelle_id_billboard { margin:0 auto !important; width: 952px !important;}'
 ]));
