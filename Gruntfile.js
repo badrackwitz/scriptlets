@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
 			options: {
-				//banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+				mangle: false // false: variabels will not be shortened. Keep this for readability if wanted.
 			},
 			build: {
 				src: 'src/<%= pkg.name %>.js',
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 			symbolStart: '([',
 			symbolEnd: '])',
 			symbolURLStart: '("',
-			symbolURLEnd: '")',	
+			symbolURLEnd: '")',
 			dest: 'build/<%= pkg.name %>.build.html'
 		},
 		watch: {
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 		contentToWrap = grunt.config('wrapScriptTag.wrapInto') + '  ' + contentToWrap + grunt.config('wrapScriptTag.wrapOutro');
 
 		// save the file with the wrapped content
-		fs.writeFileSync(grunt.config('wrapScriptTag.dest'), contentToWrap); 
+		fs.writeFileSync(grunt.config('wrapScriptTag.dest'), contentToWrap);
 
 		grunt.log.writeln('File "'+ grunt.config('wrapScriptTag.dest') +'" created.');
 	});
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 		beautifulScript = beautifulScript.substr(0,lastIndexSymbolEnd+8) + '\n  ' + beautifulScript.substr(lastIndexSymbolEnd+8);
 
 		// save the file with the wrapped content
-		fs.writeFileSync(grunt.config('beautify.dest'), beautifulScript); 
+		fs.writeFileSync(grunt.config('beautify.dest'), beautifulScript);
 
 		grunt.log.writeln('File "'+ grunt.config('beautify.dest') +'" created.');
 	});
