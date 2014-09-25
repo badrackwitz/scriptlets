@@ -8,6 +8,6 @@
 }
 ([
 	"body { background-color:#000000; }",
-	"#ads_top { width:940px; text-align:right; background-color:#000000; }",
+	".dikr-responsive-ads-top { width:940px; text-align:right; background-color:#000000; }",
 	"#wrapper { background-color: #ffffff; }"
 ]));
