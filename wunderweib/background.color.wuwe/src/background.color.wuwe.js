@@ -12,6 +12,5 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'#innerPageWrapper { background-color:#ffffff; padding:8px; }',
-	'body { background-color:#000000; }'
+	'body, .Maxi body { background-color:#000000; }'
 ]));
