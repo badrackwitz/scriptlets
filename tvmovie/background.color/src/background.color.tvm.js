@@ -12,5 +12,6 @@
 
 	document.getElementsByTagName('head')[0].appendChild(styleElement);
 }([
-	'body { background-color:#000000; }'
+	'body { background-color:#000000; }',
+	'.innerWrapper { background-color: #FFFFFF; }'
 ]));
